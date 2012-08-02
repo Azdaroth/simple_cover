@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.discogs.com/database/search?q=sdfklsdfls+sdflskdfjl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      reproxy-status:
+      - 'yes'
+      content-type:
+      - application/json
+      content-length:
+      - '94'
+      connection:
+      - close
+      date:
+      - Thu, 02 Aug 2012 11:21:33 GMT
+      server:
+      - lighttpd
+    body:
+      encoding: US-ASCII
+      string: ! '{"pagination": {"per_page": 50, "pages": 1, "page": 1, "urls": {},
+        "items": 0}, "results": []}'
+    http_version: '1.1'
+  recorded_at: Thu, 02 Aug 2012 11:21:34 GMT
+recorded_with: VCR 2.2.4

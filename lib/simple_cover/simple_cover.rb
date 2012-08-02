@@ -19,8 +19,10 @@ class SimpleCover
 
 	def choose_action(input)
 		exits = ["quit", "exit", "q"]
-		if input == "get_covers all pwd"
-			get_covers
+		if input == "get covers" 
+			do_action("covers")
+		elsif input == "standarize"
+			do_action(input)
 		elsif exits.include? input
 			puts "\n", "Thank you for using Simple Cover"
 			exit(0)
@@ -32,13 +34,18 @@ class SimpleCover
 		end
 	end
 
-	def get_covers
+	def do_action(request)
 		#@DATA_DIR = @input.split(' ')[-1]
 		@DATA_DIR = `pwd`.chop
-		Dir.open(@DATA_DIR).select {|x| x != "." and x != ".." }.each do |album|		
-			next if action = ActionMan.new(album, @DATA_DIR).execute_download == "next"
+		Dir.open(@DATA_DIR).select {|x| x != "." and x != ".." }.each do |album|
+			action = ActionMan.new(album, @DATA_DIR)
+			if request == "covers"		
+				next if action.execute_download == "next"
+			else
+				next if action.standarize == "next"			
+			end
 		end
-		puts "No more requests. Enjoy your covers."
+		puts "No more requests. Enjoy."
 		get_input
 	end
 

@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.discogs.com/database/search?q=cradle+of+filth+midian
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "cmVwcm94eS1zdGF0dXM=":
+      - !binary |-
+        eWVz
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbg==
+      !binary "Y29udGVudC1sZW5ndGg=":
+      - !binary |-
+        MTI0MQ==
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        VGh1LCAwMiBBdWcgMjAxMiAxNTozMDoxMSBHTVQ=
+      !binary "c2VydmVy":
+      - !binary |-
+        bGlnaHR0cGQ=
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAOdGlAC/82Z227bOBCGX0XwxV5VMQ86UAWKRWonQTdxY8RtLrYoCkZm
+        Em1lyZDodo0g774zomxLSSRAtgxsrixqTP6ej3Mg8zRYyocokTpKk8F762mw
+        VNkPGFLw4JJ3Fr5WOTzQ8nP5cZXFOPr0DMORVovCxMOnTOWrWOPzt6dBrtcx
+        TvVt8DGW4U9rorSMB9/BTD+uFnfwZvCo9fL9cCiX0ck8ysP0IT8J08UwWsDC
+        wxs7IDZ3GAsc36acBYIGJCAn/yzVwwBniXQx/2CUyXmsrOt76zyK9aNlW5No
+        HskEjcJ0lehsjYt9vcSB+zRbSF3Iuo2StRG0yiK0GJqZ7Ot7u5jJNvMMMxUr
+        mathKQanieWdivE7UyVD9SuKQQouJ3WS4vDtp6uzqynnDo6ulcxwkBFK8flB
+        JZnxzE0a/ixcAp5LV1mofoBz0bTBM6WSvCpFr5c4GTi/UIkLRHMYKNUCl75Y
+        COE73KbU9YQDf6wbio2TFzLXKhtSygj/U6t/9Ye33V73HCGHec6smptlcaqN
+        28yLrdcKWS0+g2/O1ovlY5pEobXF12FHU98JAg5uZA4TwuMH7OjZbzVXxTY/
+        ZFeXgtAD211dhIY1kUkkwxzf7Db25GpKmItju21Nim3ew7auaNnwebmtS5MW
+        RF1TzGHbupZhrD+ss1WWQkCCfypQRuMiyjch8PaG3+WZQlENyGSVw347TzPr
+        c5Gv61BG48n5Z8/zXlA5MGR2yWarpwkKLyxamIA7LlLIzftEjOCO4wnIOx73
+        GKOMd8s7VUCzg7gYITUul2kIP0qFaTavI7m8Ho3GgtHgSEx2WpqYGIsWJl3j
+        hFAuPBdKMfVJ4Agu9ubQR4wYNTUYr4LknfV3uriTbwLaxMzNlzGFP4gediRU
+        fCe1iVVp0h8sGkCcEAZVxmWEQHR6e8OaprFM5uibakKTea60Vl3SWqmpjgyb
+        QujXkvmbkCansxkR9FhkKoqayJQmLWTAMQd2BIT6gUBWgrnQYvn7B9bhPS41
+        YuqQWovPUUtPRU4jIaO4hVDHRBcI4XIHcECS87hw9j9y9JDnjJgajlmarK2P
+        kwvL5LuzBNppLaNkoRKNhtteTTCIe8ECIl4GUNEp9NCv7dQ10TEW/cGhAQvc
+        AOm4nHJPHBAsf8mlOSRW81qnRq0UU6PzqgjVkNx+Gk09SsXLBrqvVq2iqIlI
+        adIjEiGIyV9OIIjrUb/nWtONiVFTZ7KrMtMsna9CvPKo92tYaUbj8QUlpDij
+        Vw43Ps7VQ7DQnbJGNsakPzZcuI6LvTOc2d3AdejeaF6Vlq5nGhRSp9JaVor+
+        jPmF8yswertAKRyDeppYGNf1iIIQCJMA+2dK4UTD3L1ZHJ65uBFT43EbhRoO
+        mLV6Ym2X2laVY6ewirRGNEZ9f2wgIfPAp1BVHD8IGByd9mZzusp1JuNIom/3
+        ryxGUI3P/6jul/5qC5/SpD9GzHGw4mOb7HDmeX6HewC4Ez6d/5JJqCxIW9gj
+        Ve6F97oUsMv57NF4e29TKqxBa7sgOD3mBUFFTFMYlSb9IaLYL9PibhM+wQ1x
+        hytiRLQJncT6Arfh1tk8Kv43Uee1tUI/dw0we/vtxMY17HKNLcPyJ9QYtrd0
+        m4sE/MoRClVFUBPH0uT5+/N/JEvfZ9MZAAA=
+    http_version: !binary |-
+      MS4x
+  recorded_at: Thu, 02 Aug 2012 15:30:12 GMT
+recorded_with: VCR 2.2.4
