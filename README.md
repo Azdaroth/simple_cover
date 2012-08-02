@@ -1,6 +1,6 @@
 # SimpleCover
 
-TODO: Write a gem description
+Simple app(beta version is just a script though) capable of both downloading album covers as a cover.jpg files and standarizing names of the folders to band_name-album_title-release_year format. SimpleCover is based on the Discgos API, so keep in mind that you can make only 1000 requests in 24 hours time.  
 
 ## Installation
 
@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Go to the music directory, run SimpleCover and type "get covers" to download covers for all the albums. Type "standarize" to standarize names. As simple as that.
+
+## Future plans
+
+Writing tags for .mp3 files, 
 
 ## Contributing
 
