@@ -39,6 +39,7 @@ class SimpleCover
 	def do_action(request)
 		@DATA_DIR = `pwd`.chop
 		Dir.open(@DATA_DIR).select {|x| x != "." and x != ".." }.each do |album|
+			next if album == "simple_cover"
 			action = ActionMan.new(album, @DATA_DIR)
 			if request == "covers"		
 				next if action.execute_download == "next"
