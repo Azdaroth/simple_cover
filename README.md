@@ -5,20 +5,33 @@ Simple app for downloading album covers as a cover.jpg files and standarizing na
 ## Installation
 
 Run:
-    git clone https://github.com/Azdaroth/simple_cover.git
+
+```
+git clone https://github.com/Azdaroth/simple_cover.git
+```
 in your music directory. Then type: 
-    cd simple_cover
+```
+cd simple_cover
+```
 and execute:
-    bundle 
+```
+bundle
+``` 
 
 ## How to use
 
 Go to your music directory, then run: 
-    simple_cover/bin/simplesimple_cover.rb get_covers
+```
+simple_cover/bin/simplesimple_cover.rb get_covers
+```
 to download covers for all the albums,run: 
-    simple_cover/bin/simplesimple_cover.rb standarize
+```
+simple_cover/bin/simplesimple_cover.rb standarize
+```
 to standarize names or:
-    simple_cover/bin/simplesimple_cover.rb help
+```
+simple_cover/bin/simplesimple_cover.rb help
+```
 for help. As simple as that.
 
 ## TO DO
