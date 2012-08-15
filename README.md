@@ -22,15 +22,15 @@ bundle
 
 Go to your music directory, then run: 
 ```
-simple_cover/bin/simplesimple_cover.rb get_covers
+simple_cover/bin/simple_cover.rb get_covers
 ```
 to download covers for all the albums,run: 
 ```
-simple_cover/bin/simplesimple_cover.rb standarize
+simple_cover/bin/simple_cover.rb standarize
 ```
 to standarize names or:
 ```
-simple_cover/bin/simplesimple_cover.rb help
+simple_cover/bin/simple_cover.rb help
 ```
 for help. As simple as that.
 
