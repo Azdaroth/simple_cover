@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 class SimpleCover
 
 	def initialize(welcome)
@@ -17,9 +19,9 @@ class SimpleCover
 		choose_action(input)
 	end
 
-	def choose_action(input)
+	def choose_action(input=ARGV[0])
 		exits = ["quit", "exit", "q"]
-		if input == "get covers" 
+		if input == "get_covers" 
 			do_action("covers")
 		elsif input == "standarize"
 			do_action(input)
@@ -30,12 +32,11 @@ class SimpleCover
 			help
 		else
 			puts "Command not found"
-			get_input
+			# get_input
 		end
 	end
 
 	def do_action(request)
-		#@DATA_DIR = @input.split(' ')[-1]
 		@DATA_DIR = `pwd`.chop
 		Dir.open(@DATA_DIR).select {|x| x != "." and x != ".." }.each do |album|
 			action = ActionMan.new(album, @DATA_DIR)
@@ -46,18 +47,17 @@ class SimpleCover
 			end
 		end
 		puts "No more requests. Enjoy."
-		get_input
+		# get_input
 	end
 
 	def help
 		help_text = <<HELP
 Change directory to the one with your music collection.
-Type "get_covers all pwd" to download covers for all albums.
-Type "get_covers scan pwd" to download covers for the albums that don't cover yet.
-Type "q", "exit" or "quit" to exit Simple Cover 
+Type "get_covers" to download covers for all albums.
+Type "standarize" to standarize folder names to band_name-album_name-release_year format
 HELP
 
-		puts help_text, "\n"
-		get_input
+		puts help_text
+		# get_input
 	end
 end
