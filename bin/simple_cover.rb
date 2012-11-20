@@ -10,7 +10,7 @@ require_relative '../lib/simple_cover/action_man'
 require_relative '../lib/simple_cover/constants'
 
 
-SimpleCover.new(welcome).choose_action
+SimpleCover.new.choose_action
 
 
 

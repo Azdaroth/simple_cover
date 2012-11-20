@@ -1,10 +1,6 @@
 #!/usr/bin/env ruby
 
-class SimpleCover
-
-	def initialize(welcome)
-		@welcome = welcome
-	end		
+class SimpleCover	
 
 	def choose_action(input=ARGV[0])
 		if input == "get_covers" 
