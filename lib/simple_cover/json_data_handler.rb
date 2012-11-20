@@ -43,10 +43,10 @@ class JSONDataHandler
 			puts "No information found"
 			return "next"
 		end
-		
 		info
 	end
 
+	# proper year - year that appears in most cases
 	def get_proper_year(results)
 		years = []
 		results.each { |result| years << result["year"] }

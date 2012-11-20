@@ -14,4 +14,9 @@ Gem::Specification.new do |gem|
   gem.name          = "simple_cover"
   gem.require_paths = ["lib"]
   gem.version       = SimpleCover::VERSION
+  
+  gem.add_dependency("rest-client")
+  gem.add_dependency("crack")
+  gem.add_dependency("file-utils")
+
 end

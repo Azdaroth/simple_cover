@@ -13,14 +13,17 @@ describe ActionMan do
 	let(:expectations) { ["cradle+of+filth+midian", 
 				"dimmu+borgir+puritanical+euphoric+misanthropia"] }
 
-	context "making search phrase" do
-		it "should return proper phrase" do
-			validate_search_phrase(albums, expectations)
+	context "#make_search_phrase" do
+		it "returns proper phrase" do
+			(0..albums.length-1).each do |album_number|
+				action = ActionMan.new(albums[album_number], "directory")
+				action.make_search_phrase.should == expectations[album_number]
+			end
 		end
 	end
 
-	context "making standarized name" do
-		it "should return proper name" do
+	context "#make_standarized_name" do
+		it "returns standarized name" do
 			name = "Cradle of Filth - Midian"
 			year = 2000
 			data = ActionMan.new("album", "directory").make_standarized_name(name, year)
