@@ -4,7 +4,7 @@ require File.expand_path('../lib/simple_cover/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Azdaroth"]
   gem.email         = ["azdaroth@gmail.com"]
-  gem.description   = %q{Gem downloading covers and standarizing album names}
+  gem.description   = %q{Simple aoo downloading covers and standarizing albums' names}
   gem.summary       = %q{}
   gem.homepage      = ""
 
@@ -17,6 +17,5 @@ Gem::Specification.new do |gem|
   
   gem.add_dependency("rest-client")
   gem.add_dependency("crack")
-  gem.add_dependency("file-utils")
 
 end

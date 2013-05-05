@@ -5,4 +5,3 @@ gemspec
 
 gem 'rest-client'
 gem 'crack'
-gem 'fileutils'
