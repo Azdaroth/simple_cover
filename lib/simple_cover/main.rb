@@ -1,6 +1,26 @@
 #!/usr/bin/env ruby
 
-class SimpleCover	
+
+class Main
+
+	def initialize(args)
+		@actions = args[:actions]
+		@standarizer = args[:standarizer]
+		@cover_downloader = args[:cover_downloader]
+	end
+
+	def execute
+		@actions.each do |arg|
+			case arg
+			when "standarize"
+				@standarizer.standarize 
+			when "download_covers"
+				@cover_downloader.download
+			else
+				raise InvalidCommandError, "Command: #{arg} invalid"
+			end
+		end
+	end
 
 	def choose_action(input=ARGV[0])
 		if input == "get_covers" 
@@ -25,4 +45,14 @@ class SimpleCover
 		end
 		puts "No more requests. Enjoy."
 	end
+
+	private
+
+		def current_dir
+			`pwd`.chop
+		end
+end
+
+class InvalidCommandError < Exception
+	
 end
