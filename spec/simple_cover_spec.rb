@@ -8,21 +8,21 @@ require_relative '../lib/simple_cover/standarizer'
 
 describe SimpleCover do
 
-  let(:dir) { stub }
+  let(:files) { stub }
   let(:runner) { SimpleCover }
   
   it "downloads covers" do
     cover_downloader = stub
-    SimpleCover::CoverDownloader.should_receive(:new).with(dir) { cover_downloader }
+    SimpleCover::CoverDownloader.should_receive(:new).with(files) { cover_downloader }
     cover_downloader.should_receive(:download)
-    runner.execute(action: 'download_covers', dir: dir)
+    runner.execute(action: 'download_covers', files: files)
   end
 
   it "standarizes names of albums" do
     standarizer = stub
-    SimpleCover::Standarizer.should_receive(:new).with(dir) { standarizer }
+    SimpleCover::Standarizer.should_receive(:new).with(files) { standarizer }
     standarizer.should_receive(:standarize)
-    runner.execute(action: 'standarize', dir: dir)
+    runner.execute(action: 'standarize', files: files)
   end
 
 

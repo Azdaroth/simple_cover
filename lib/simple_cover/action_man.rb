@@ -8,14 +8,6 @@ module SimpleCover
 			@DATA_DIR = data_dir
 		end
 
-		def make_search_phrase
-			phrase = @album.gsub(DATE_REGEX,'').gsub(SYMBOLS_REGEX,'+').gsub(ADDITIONAL_PLUSES, '+').downcase
-		end
-
-		def make_standarized_name(name, year)
-			standarized_name = "#{name}-#{year}".gsub(SPACES_REGEX,'_').gsub('_-_','-').downcase
-		end
-
 		def execute_download
 			phrase = make_search_phrase
 			data = JSONDataHandler.new(phrase)
