@@ -6,7 +6,6 @@ gemspec
 gem 'rest-client'
 gem 'crack'
 
-#test
 
 gem 'rspec'
 gem 'vcr'

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.discogs.com/database/search?q=qwerty+123+random+stuff
+    uri: http://api.discogs.com/database/search?q=qweqweqweqweqwe
     body:
       encoding: US-ASCII
       string: ''
@@ -22,18 +22,24 @@ http_interactions:
       - 'yes'
       content-type:
       - application/json
-      content-length:
-      - '94'
-      connection:
-      - close
-      date:
-      - Thu, 02 Aug 2012 13:50:18 GMT
       server:
       - lighttpd
+      content-length:
+      - '94'
+      date:
+      - Thu, 09 May 2013 16:58:35 GMT
+      x-varnish:
+      - '1443688080'
+      age:
+      - '0'
+      via:
+      - 1.1 varnish
+      connection:
+      - keep-alive
     body:
       encoding: US-ASCII
       string: ! '{"pagination": {"per_page": 50, "items": 0, "page": 1, "urls": {},
         "pages": 1}, "results": []}'
     http_version: '1.1'
-  recorded_at: Thu, 02 Aug 2012 13:50:18 GMT
-recorded_with: VCR 2.2.4
+  recorded_at: Thu, 09 May 2013 16:58:39 GMT
+recorded_with: VCR 2.2.5

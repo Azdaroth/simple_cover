@@ -1,10 +1,8 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/simple_cover/version', __FILE__)
-
 Gem::Specification.new do |gem|
   gem.authors       = ["Azdaroth"]
   gem.email         = ["azdaroth@gmail.com"]
-  gem.description   = %q{Simple aoo downloading covers and standarizing albums' names}
+  gem.description   = %q{Simple app downloading covers and standarizing albums' names}
   gem.summary       = %q{}
   gem.homepage      = ""
 
@@ -13,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "simple_cover"
   gem.require_paths = ["lib"]
-  gem.version       = SimpleCover::VERSION
+  gem.version = 0.1
   
   gem.add_dependency("rest-client")
   gem.add_dependency("crack")

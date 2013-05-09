@@ -1,8 +1,8 @@
 module SimpleCover
   class Standarizer
     
-    def initialize(directory)
-      @directory = directory
+    def initialize(files)
+      @files = files
       @json_data_handler = JSONDataHandler
     end
 

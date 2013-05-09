@@ -1,31 +1,32 @@
 require 'rubygems'
 require 'spec_helper'
 require 'rspec'
-require 'crack'
-require 'restclient'
-require 'simple_cover/json_data_handler.rb'
-require 'simple_cover/constants.rb'
+require 'simple_cover/json_data_handler'
+require 'simple_cover/discogs_connecter'
 
-describe JSONDataHandler do
-	describe "#get_album" do
+
+describe SimpleCover::JSONDataHandler do
+
+	let(:resource_not_found) { SimpleCover::JSONDataHandler::ResourceNotFound }
+
+	describe "#get_album_url" do
 		context "album is found" do
 			it "returns album's resource url" do
 				VCR.use_cassette "album_found" do
 					search_phrase = "Cradle+Of+Filth+Midian"
-					data = JSONDataHandler.new(search_phrase)
-					result = data.get_album
+					result = SimpleCover::JSONDataHandler.new(search_phrase).get_album_url
 					result.should eq "http://api.discogs.com/releases/3422947"	
 				end			
 			end
 		end
 
 		context "and album is not found" do
-			it "should return string 'next'" do
+			it "should return resource_not_found" do
 				VCR.use_cassette "album_not_found" do
 					search_phrase = "sdfklsdfls+sdflskdfjl"
-					data = JSONDataHandler.new(search_phrase)
-					result = data.get_album
-					result.should eq "next"
+					data = SimpleCover::JSONDataHandler.new(search_phrase)
+					result = data.get_album_url
+					result.should eq resource_not_found
 				end			
 			end	
 		end
@@ -33,21 +34,20 @@ describe JSONDataHandler do
 
 	describe "#get_image" do
 		context "image is found" do
-			it "returns image uri" do
-				VCR.use_cassette "image_found" do
-					resource_url = "http://api.discogs.com/releases/3422947"
-					data = JSONDataHandler.new("phrase").get_image(resource_url)
-					data.should eq 	"http://api.discogs.com/image/R-3422947-1329819090.jpeg"
-				end	
+			it "should return resource_not_found" do
+				search_phrase = "Cradle+Of+Filth+Midian"
+				data = SimpleCover::JSONDataHandler.new(search_phrase)
+				data.stub(:images) { { "images" => [ { "uri" => "http://api.discogs.com/image/R-3422947-1329819090.jpeg" } ] } }
+				data.get_image.should eq "http://api.discogs.com/image/R-3422947-1329819090.jpeg"
 			end
 		end
 
 		context "image is not found" do
-			it "returns string 'next'" do
-				VCR.use_cassette "image_not_found" do
-					resource_url = "http://api.discogs.com/releases/qwerty12345"
-					data = JSONDataHandler.new("phrase").get_image(resource_url)
-					data.should eq "next"
+			it "returns resource_not_found" do
+				VCR.use_cassette "album_not_found" do
+					resource_url = "qwe+asde"
+					data = SimpleCover::JSONDataHandler.new(resource_url).get_image
+					data.should eq resource_not_found
 				end	
 			end
 		end
@@ -56,42 +56,20 @@ describe JSONDataHandler do
 	describe "#get_release_info" do
 		context "release info is found" do
 			it "returns release info" do
-				VCR.use_cassette "relsease_found" do
+				VCR.use_cassette "release_found" do
 					search_phrase = "cradle+of+filth+midian"
-					data = JSONDataHandler.new(search_phrase)
+					data = SimpleCover::JSONDataHandler.new(search_phrase)
 					data.get_release_info.should == {"title" => "Cradle Of Filth - Midian", "year" => "2000"}
 				end
 			end
 		end
 
 		context "release info is not found" do
-			it "returns string 'next'" do
-				VCR.use_cassette "relsease_not_found" do
-					search_phrase = "qwerty+123+random+stuff"
-					data = JSONDataHandler.new(search_phrase)
-					data.get_release_info.should eq "next"
-				end
-			end
-		end
-	end
-
-	describe "#get_proper_year" do
-
-		let(:search_phrase) { "cradle+of+filth+midian" }
-		let(:data) { JSONDataHandler.new(search_phrase) }
-
-		context "integration" do
-			it "returns the most common year" do
-				VCR.use_cassette "proper_year" do
-					results = Crack::JSON.parse(RestClient.get("#{SEARCH_URL}#{search_phrase}", 'User-Agent' => 'Ruby'))['results']
-					data.get_proper_year(results).should eq "2000"
-				end
-			end
-		end
-		context "unit_test"	do
-			it "returns the most common year" do
-				VCR.use_cassette "proper_year" do
-					data.get_proper_year([{"year" => "2000"}, {"year" => "2003"}, {"year" => "2002"}, {"year" => "2000"}, {"year" => "2001" }]).should eq "2000"
+			it "returns resource_not_found" do
+				VCR.use_cassette "release_not_found" do
+					search_phrase = "qweqweqweqweqwe"
+					data = SimpleCover::JSONDataHandler.new(search_phrase)
+					data.get_release_info.should eq resource_not_found
 				end
 			end
 		end

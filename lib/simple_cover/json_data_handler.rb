@@ -1,57 +1,54 @@
-#!/usr/bin/env ruby
+require 'simple_cover/discogs_connecter'
+require 'simple_cover/years_getter'
 
 module SimpleCover
 	class JSONDataHandler
 		
+		ResourceNotFound = Class.new
+
 		def initialize(phrase)
-			@phrase = phrase
+			@connecter = SimpleCover::DiscogsConnecter.new(phrase)
 		end
 
-		def get_album
-			resp = RestClient.get("#{SEARCH_URL}#{@phrase}", 'User-Agent' => 'Ruby')
-			json_data = Crack::JSON.parse(resp)
-
+		def get_album_url
 			begin
-				resource_url = json_data['results'][0]['resource_url']
-			rescue Exception => error
+				resource_url = data[0]['resource_url']
+			rescue 
 				puts "Album not found in Discogs database"
-				return "next"
+				ResourceNotFound
 			end
-			resource_url
 		end
 
-		def get_image(resource_url)
-			release_resp = RestClient.get("#{resource_url}", 'User-Agent' => 'Ruby')
-			json_release = Crack::JSON.parse(release_resp)
-
+		def get_image
 			begin
-				image_uri = json_release['images'][0]['uri']
-			rescue Exception => error
+				image_uri = images['images'][0]['uri']
+			rescue 
 				puts "Image not found in Discogs database"
-				return "next"
+				ResourceNotFound
 			end
-			image_uri
 		end
 
 		def get_release_info
-			resp = RestClient.get("#{SEARCH_URL}#{@phrase}", 'User-Agent' => 'Ruby')
-			json_data = Crack::JSON.parse(resp)
-
 			begin
-				info = {"title" => json_data['results'][0]['title'], 
-					"year" => get_proper_year(json_data['results']) }
-			rescue Exception => error
+				info = {"title" => data[0]['title'], "year" => get_proper_year }
+			rescue
 				puts "No information found"
-				return "next"
+				ResourceNotFound
 			end
-			info
 		end
 
-		# proper year - year that appears in most cases
-		def get_proper_year(results)
-			years = []
-			results.each { |result| years << result["year"] }
-			proper_year = years.group_by { |x| x }.to_a.map { |y| y.flatten }.sort_by { |z| z.length }[-1][0] 
+	private
+
+		def data
+			@connecter.data_to_json['results']
+		end
+
+		def get_proper_year
+			YearsGetter.new(data).most_common
+		end
+
+		def images
+			SimpleCover::DiscogsConnecter.json_from_url(get_album_url)
 		end
 	end
 end

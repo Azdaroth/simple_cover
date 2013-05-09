@@ -1,5 +1,5 @@
-require_relative '../spec_helper'
-require_relative '../../lib/simple_cover/album'
+require 'spec_helper'
+require 'simple_cover/album'
 
 describe SimpleCover::Album do
 
