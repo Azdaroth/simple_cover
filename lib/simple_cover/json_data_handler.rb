@@ -1,5 +1,5 @@
-require 'simple_cover/discogs_connecter'
-require 'simple_cover/years_getter'
+require_relative 'discogs_connecter'
+require_relative 'years_getter'
 
 module SimpleCover
 	class JSONDataHandler

@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+require_relative 'simple_cover/cover_downloader'
+require_relative 'simple_cover/standarizer'
+
 
 module SimpleCover
 
@@ -9,11 +12,10 @@ module SimpleCover
     when "download_covers"
       CoverDownloader.new(args[:files]).download
     else
-      raise InvalidCommandError, "Command: #{args[:action]} invalid"
+      raise InvalidCommandError, "Command: #{args[:action]} invalid, use: standarize or download_covers"
     end
   end
 end
 
-class InvalidCommandError < Exception
-  
+class InvalidCommandError < Exception  
 end
