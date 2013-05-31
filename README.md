@@ -9,7 +9,7 @@ Run:
 ```
 git clone https://github.com/Azdaroth/simple_cover.git
 ```
-in your music directory. Then type: 
+Then type: 
 ```
 cd simple_cover
 ```
@@ -22,17 +22,14 @@ bundle
 
 Go to your music directory, then run: 
 ```
-simple_cover/bin/simple_cover.rb get_covers
+path_to_simple_cover/bin/simple_cover.rb standarize
 ```
-to download covers for all the albums,run: 
+to standarize names, download covers by running:
 ```
-simple_cover/bin/simple_cover.rb standarize
+path_to_simple_cover/bin/simple_cover.rb download_covers
 ```
-to standarize names or:
+If the name is already standarized or folder has cover.jpg file, then it is skipped.
 ```
-simple_cover/bin/simple_cover.rb help
-```
-for help. As simple as that.
 
 ## TO DO
 
